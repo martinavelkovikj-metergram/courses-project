@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { config } from "./config";
 import { Course } from './Model/Course';
 import { CourseParams } from './util/types';
 
 export async function fetchAndStoreCourses() {
     try {
       const authResponse = await axios.post('https://metergram-courses-api.azurewebsites.net/api/auth', {
-        apiKey: '58cc5cc9-799c-48c1-9af9-c7965b4ac0eb',
+        apiKey: config.api_key,
       });
 
     console.log(authResponse.data);
