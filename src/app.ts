@@ -2,9 +2,17 @@ import express from "express";
 import { AppSource } from "./util/database";
 import { Course } from "./Model/Course";
 import { fetchCoursesAndStore } from "./data-handler/fetch-store-data";
+import { companyRouter } from "./routes/company";
+import { participantRouter } from "./routes/participant";
+import { courseRouter } from "./routes/course";
+import { appRouter } from "./routes/application";
 
 const app = express();
 app.use(express.json());
+app.use(companyRouter);
+app.use(participantRouter);
+app.use(courseRouter);
+app.use(appRouter);
 
 AppSource.initialize()
   .then(async () => {

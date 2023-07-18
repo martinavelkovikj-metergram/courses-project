@@ -16,7 +16,7 @@ export class Participant extends BaseEntity{
   @Column()
   email!: string;
 
-  @ManyToOne(() => Company)
+  @ManyToOne(() => Company) 
   company!: Company;
 
   @ManyToMany(() => Application,(application)=>application.participants)

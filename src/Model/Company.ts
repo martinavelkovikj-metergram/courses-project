@@ -10,7 +10,7 @@ export class Company extends BaseEntity {
   name!: string;
 
   @Column()
-  phone_number!: string;
+  phone_number!: string; 
 
   @Column()
   email!: string;
