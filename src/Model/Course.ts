@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
+import { Application } from './Application';
 
 @Entity()
 export class Course extends BaseEntity{
@@ -10,4 +11,7 @@ export class Course extends BaseEntity{
 
   @Column()
   name!: string;
+
+  @OneToMany(() => Application, application => application.course)
+  applications?: Application[];
 }

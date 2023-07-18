@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
+import { Application } from "./Application";
 
 @Entity()
 export class Company extends BaseEntity {
@@ -13,4 +14,7 @@ export class Company extends BaseEntity {
 
   @Column()
   email!: string;
+
+  @OneToMany(() => Application, application => application.company)
+  applications?: Application[];
 }

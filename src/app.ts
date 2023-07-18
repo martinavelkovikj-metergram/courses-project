@@ -8,7 +8,7 @@ app.use(express.json());
 
 AppSource.initialize()
   .then(async () => {
-    await Course.clear();
+    await Course.delete({});
     app.listen(3000, () => {
       console.log("Server is running on port 3000");
     });

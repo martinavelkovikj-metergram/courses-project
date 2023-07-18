@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity, ManyToMany } from 'typeorm';
 import { Company } from './Company';
+import { Application } from './Application';
 
 @Entity()
 export class Participant extends BaseEntity{
@@ -17,4 +18,7 @@ export class Participant extends BaseEntity{
 
   @ManyToOne(() => Company)
   company!: Company;
+
+  @ManyToMany(() => Application,(application)=>application.participants)
+  applications!: Application[];
 }

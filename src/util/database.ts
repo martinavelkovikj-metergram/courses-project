@@ -5,6 +5,7 @@ import { Participant } from "../Model/Participant";
 import { Course } from "../Model/Course";
 
 import { config } from "../config";
+import { Application } from "../Model/Application";
 
 export const AppSource = new DataSource({
   type: "postgres",
@@ -13,6 +14,6 @@ export const AppSource = new DataSource({
   username: config.db.username,
   password: config.db.password,
   database: config.db.database,
-  entities: [Company, Course, Participant],
+  entities: [Company, Course, Participant, Application],
   synchronize: true,
 });
