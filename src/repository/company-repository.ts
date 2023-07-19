@@ -11,6 +11,7 @@ export class CompanyRepository {
       }).save();
     } catch (err) {
       console.error(err); 
+      throw new Error("Creating company failed!");
     }
   }
 
@@ -26,6 +27,7 @@ export class CompanyRepository {
       }
     } catch (err) {
       console.log(err);
+      throw new Error("Deleting company failed!");
     }
   }
 
@@ -34,6 +36,7 @@ export class CompanyRepository {
       return await Company.find();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching companies failed!");
     }
   }
 
@@ -46,6 +49,7 @@ export class CompanyRepository {
       });
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching company failed!");
     }
   }
 }

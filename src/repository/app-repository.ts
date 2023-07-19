@@ -16,6 +16,7 @@ export class ApplicationRepository {
       }).save();
     } catch (err) {
       console.error(err);
+      throw new Error("Creating application failed!");
     }
   }
 
@@ -31,6 +32,7 @@ export class ApplicationRepository {
       }
     } catch (err) {
       console.log(err);
+      throw new Error("Deleting application failed!");
     }
   }
 
@@ -39,6 +41,7 @@ export class ApplicationRepository {
       return await Application.find();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching applications failed!");
     }
   }
 
@@ -51,6 +54,7 @@ export class ApplicationRepository {
       });
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching application failed!");
     }
   }
 }

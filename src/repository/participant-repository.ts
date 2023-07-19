@@ -13,14 +13,13 @@ export class ParticipantRepository {
       });
       if (company) {
         return await Participant.create({
-          name: participantParams.name, 
-          phone_number: participantParams.phone_number,
-          email: participantParams.email,
-          company: company,
+            ...participantParams,
+            company
         }).save();
       }
     } catch (err) {
       console.error(err);
+      throw new Error("Creating participant failed!");
     }
   }
 
@@ -33,9 +32,12 @@ export class ParticipantRepository {
       });
       if (participant) {
         return await Participant.remove(participant);
-      }
+      }else{
+        throw new Error("Participant not found");
+      } 
     } catch (err) {
       console.log(err);
+      throw new Error("Deleting participant failed");
     }
   }
 
@@ -44,6 +46,7 @@ export class ParticipantRepository {
       return await Participant.find();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching participants failed");
     }
   }
 
@@ -57,6 +60,7 @@ export class ParticipantRepository {
       return participants;
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching participants failed");
     }
   }
 
@@ -69,6 +73,7 @@ export class ParticipantRepository {
       });
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching participant failed");
     }
   }
 }

@@ -13,6 +13,7 @@ export class CoursesRepository {
       }
     } catch (err) {
       console.log(err); 
+      throw new Error("Deleting course failed!");
     }
   }
 
@@ -21,6 +22,7 @@ export class CoursesRepository {
       return await Course.find();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching courses failed!");
     }
   }
 
@@ -33,6 +35,7 @@ export class CoursesRepository {
       });
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching course failed!");
     }
   }
 }
