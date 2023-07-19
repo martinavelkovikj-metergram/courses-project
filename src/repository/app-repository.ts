@@ -11,7 +11,7 @@ export class ApplicationRepository {
 
       return await Application.create({
         course: applicationParams.course,
-        company: applicationParams.company,
+        company: applicationParams.company, 
         participants: applicationParams.participants,
       }).save();
     } catch (err) {

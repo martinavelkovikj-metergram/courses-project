@@ -13,7 +13,7 @@ export class ParticipantRepository {
       });
       if (company) {
         return await Participant.create({
-          name: participantParams.name,
+          name: participantParams.name, 
           phone_number: participantParams.phone_number,
           email: participantParams.email,
           company: company,

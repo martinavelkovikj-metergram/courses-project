@@ -12,7 +12,7 @@ export class CoursesRepository {
         return await Course.remove(course);
       }
     } catch (err) {
-      console.log(err);
+      console.log(err); 
     }
   }
 

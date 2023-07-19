@@ -10,7 +10,7 @@ export class CompanyRepository {
         email: companyParams.email,
       }).save();
     } catch (err) {
-      console.error(err);
+      console.error(err); 
     }
   }
 

@@ -13,7 +13,7 @@ courseRouter.delete("/courses/:id", async (req, res) => {
 });
 
 courseRouter.get("/courses", async (req, res) =>
-  res.send(await new Courses().getAllCourses())
+  res.send(await new Courses().getAllCourses()) 
 );
 
 courseRouter.get("/courses/:id", async (req, res) => {

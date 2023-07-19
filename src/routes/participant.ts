@@ -37,6 +37,6 @@ participantRouter.get("/participant/:id", async (req, res) => {
 participantRouter.get("/participantFrom/:id", async (req, res) => {
   const { id } = req.params;
   return res.send(
-    await new Participants().getAllParticipantsFromCompany(parseInt(id))
+    await new Participants().getAllParticipantsFromCompany(parseInt(id)) 
   );
 });

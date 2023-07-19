@@ -12,7 +12,7 @@ companyRouter.delete("/company/:id", async (req, res) => {
     const companyId = await new Companies().deleteCompany(parseInt(id));
     res.send({ deletedCompanyId: id });
   } catch (err) {
-    res.status(500).send({ error: "Failed deleting company" });
+    res.status(500).send({ error: "Failed deleting company" }); 
   }
 });
 
