@@ -5,7 +5,7 @@ export class ApplicationRepository {
   async createApplication(applicationParams: ApplicationParams) {
     try {
       const { participants, company, course } = applicationParams;
-      if (!company || !course || participants.some((p) => !p)) {
+      if (!company || !course || participants.some((p) => !p)) { 
         return;
       }
 
