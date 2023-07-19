@@ -5,9 +5,7 @@ export class CompanyRepository {
   async createCompany(companyParams: CompanyParams) {
     try {
       return await Company.create({ 
-        name: companyParams.name,
-        phone_number: companyParams.phone_number,
-        email: companyParams.email,
+        ...companyParams
       }).save();
     } catch (err) {
       console.error(err); 
