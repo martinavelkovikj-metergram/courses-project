@@ -1,8 +1,10 @@
 import express, { Request, Response } from "express";
 import { Participants } from "../controllers/participants";
 import { ParticipantParams } from "../util/types";
+import { authorizeRequest } from "../middleware/authorize-requests";
 export const participantRouter = express.Router();
 
+participantRouter.use(authorizeRequest);
 participantRouter.post("/participant", async (req: Request, res: Response) => {
   try {
     const participantParams: ParticipantParams = req.body.participantParams;

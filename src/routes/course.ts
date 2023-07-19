@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
 import { Courses } from "../controllers/courses";
+import { authorizeRequest } from "../middleware/authorize-requests";
 export const courseRouter = express.Router();
 
+courseRouter.use(authorizeRequest);
 courseRouter.delete("/courses/:id", async (req, res) => {
   try {
     const { id } = req.params;

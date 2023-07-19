@@ -11,6 +11,7 @@ interface Config {
   db: DbConfig;
   api_key: String;
   api_url: String;
+  internal_api_key: String;
 }
 
 function readEnvVariable(key: string): string {
@@ -29,7 +30,8 @@ const config: Config = {
     database: readEnvVariable("DATABASE_NAME"),
   },
   api_key: readEnvVariable("API_KEY"),
-  api_url: readEnvVariable("API_URL")
+  api_url: readEnvVariable("API_URL"),
+  internal_api_key: readEnvVariable("INTERNAL_API_KEY")
 };
 
 export { config };

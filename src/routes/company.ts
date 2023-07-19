@@ -1,7 +1,10 @@
 import express, { Request, Response } from "express";
 import { Companies } from "../controllers/companies";
+import { authorizeRequest } from "../middleware/authorize-requests";
 export const companyRouter = express.Router();
 
+
+companyRouter.use(authorizeRequest);
 companyRouter.post("/company", async (req: Request, res: Response) =>
   res.send(await new Companies().createCompany(req.body))
 );

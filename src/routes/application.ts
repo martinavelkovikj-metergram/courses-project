@@ -1,7 +1,10 @@
 import express, { Request, Response } from "express";
 import { Applications } from "../controllers/applications";
+import { authorizeRequest } from "../middleware/authorize-requests";
 export const appRouter = express.Router();
 
+
+appRouter.use(authorizeRequest);
 appRouter.post("/application", async (req: Request, res: Response) =>
   res.send(await new Applications().createApplication(req.body))
 );
