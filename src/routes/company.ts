@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { Companies } from "../Controllers/Companies";
+import { Companies } from "../controllers/companies";
 export const companyRouter = express.Router();
 
 companyRouter.post("/company", async (req: Request, res: Response) =>
@@ -21,6 +21,6 @@ companyRouter.get("/company", async (req, res) =>
 );
 
 companyRouter.get("/company/:id", async (req, res) => {
-    const { id } = req.params;
-    return res.send(await new Companies().getCompanyById(parseInt(id)));
-  });
+  const { id } = req.params;
+  return res.send(await new Companies().getCompanyById(parseInt(id)));
+});

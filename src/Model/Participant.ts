@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity, ManyToMany } from 'typeorm';
-import { Company } from './Company';
-import { Application } from './Application';
+import { Company } from './company';
+import { Application } from './application';
 
 @Entity()
 export class Participant extends BaseEntity{

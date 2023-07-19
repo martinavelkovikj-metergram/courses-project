@@ -1,5 +1,4 @@
-
-import { CompanyService } from "../Service/company-service";
+import { CompanyService } from "../service/company-service";
 import { CompanyParams } from "../util/types";
 
 export class Companies {

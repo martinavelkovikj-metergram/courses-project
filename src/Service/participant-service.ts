@@ -1,11 +1,15 @@
-import { ParticipantRepository } from "../Repository/participant-repository";
+import { ParticipantRepository } from "../repository/participant-repository";
 import { ParticipantParams } from "../util/types";
 
 export class ParticipantService {
-  async createParticipant(participantParams: ParticipantParams, companyId: number) {
+  async createParticipant(
+    participantParams: ParticipantParams,
+    companyId: number
+  ) {
     try {
       return await new ParticipantRepository().createParticipant(
-        participantParams, companyId
+        participantParams,
+        companyId
       );
     } catch (err) {
       console.error(err);
@@ -20,28 +24,31 @@ export class ParticipantService {
     }
   }
 
-  async getAllParticipants(){
+  async getAllParticipants() {
     try {
-        return await new ParticipantRepository().getAllParticipants();
-      } catch (err) {
-        console.error(err);
-      }
+      return await new ParticipantRepository().getAllParticipants();
+    } catch (err) {
+      console.error(err);
+    }
   }
 
-  async getAllParticipantsFromCompany(companyId:number){
+  async getAllParticipantsFromCompany(companyId: number) {
     try {
-        return await new ParticipantRepository().getAllParticipantsFromCompany(companyId);
-      } catch (err) {
-        console.error(err);
-      }
+      return await new ParticipantRepository().getAllParticipantsFromCompany(
+        companyId
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
 
-  async getParticipant(participantId:number){
+  async getParticipant(participantId: number) {
     try {
-        return await new ParticipantRepository().getParticipantById(participantId);
-      } catch (err) {
-        console.error(err);
-      }
+      return await new ParticipantRepository().getParticipantById(
+        participantId
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
-  
 }

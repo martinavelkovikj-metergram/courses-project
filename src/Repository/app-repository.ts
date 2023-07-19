@@ -1,21 +1,19 @@
-
-import { Application } from "../Model/Application";
+import { Application } from "../model/application";
 import { ApplicationParams } from "../util/types";
 
 export class ApplicationRepository {
   async createApplication(applicationParams: ApplicationParams) {
     try {
-        const { participants, company, course } = applicationParams;
-        if (!company || !course || participants.some((p) => !p)) {
-            return;
-          }
-       
-        return await Application.create({
-            course: applicationParams.course,
-            company: applicationParams.company,
-            participants: applicationParams.participants,
-          }).save();
-        
+      const { participants, company, course } = applicationParams;
+      if (!company || !course || participants.some((p) => !p)) {
+        return;
+      }
+
+      return await Application.create({
+        course: applicationParams.course,
+        company: applicationParams.company,
+        participants: applicationParams.participants,
+      }).save();
     } catch (err) {
       console.error(err);
     }

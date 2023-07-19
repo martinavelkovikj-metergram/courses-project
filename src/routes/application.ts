@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { Applications } from "../Controllers/Applications";
+import { Applications } from "../controllers/applications";
 export const appRouter = express.Router();
 
 appRouter.post("/application", async (req: Request, res: Response) =>

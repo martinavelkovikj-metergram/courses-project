@@ -1,11 +1,11 @@
 import { DataSource } from "typeorm";
 
-import { Company } from "../Model/Company";
-import { Participant } from "../Model/Participant";
-import { Course } from "../Model/Course";
+import { Company } from "../model/company";
+import { Participant } from "../model/participant";
+import { Course } from "../model/course";
 
 import { config } from "../config";
-import { Application } from "../Model/Application";
+import { Application } from "../model/application";
 
 export const AppSource = new DataSource({
   type: "postgres",

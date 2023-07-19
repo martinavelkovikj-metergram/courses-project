@@ -1,11 +1,12 @@
-
-import { ApplicationService } from "../Service/application-service";
+import { ApplicationService } from "../service/application-service";
 import { ApplicationParams } from "../util/types";
 
 export class Applications {
   async createApplication(applicationParams: ApplicationParams) {
     try {
-      return await new ApplicationService().createApplication(applicationParams);
+      return await new ApplicationService().createApplication(
+        applicationParams
+      );
     } catch (err) {
       console.error(err);
     }

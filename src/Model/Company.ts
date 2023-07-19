@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
-import { Application } from "./Application";
+import { Application } from "./application";
 
 @Entity()
 export class Company extends BaseEntity {

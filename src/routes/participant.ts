@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { Participants } from "../Controllers/Participants";
+import { Participants } from "../controllers/participants";
 import { ParticipantParams } from "../util/types";
 export const participantRouter = express.Router();
 

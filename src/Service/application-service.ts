@@ -1,5 +1,5 @@
 import { ApplicationParams } from "../util/types";
-import { ApplicationRepository } from "../Repository/app-repository";
+import { ApplicationRepository } from "../repository/app-repository";
 
 export class ApplicationService {
   async createApplication(appParams: ApplicationParams) {

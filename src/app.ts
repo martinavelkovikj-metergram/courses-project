@@ -1,6 +1,6 @@
 import express from "express";
 import { AppSource } from "./util/database";
-import { Course } from "./Model/Course";
+import { Course } from "./model/course";
 import { fetchCoursesAndStore } from "./data-handler/fetch-store-data";
 import { companyRouter } from "./routes/company";
 import { participantRouter } from "./routes/participant";

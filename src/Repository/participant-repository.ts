@@ -1,6 +1,6 @@
-import { Participant } from "../Model/Participant";
+import { Participant } from "../model/participant";
 import { ParticipantParams } from "../util/types";
-import { Company } from "../Model/Company";
+import { Company } from "../model/company";
 
 export class ParticipantRepository {
   async createParticipant(

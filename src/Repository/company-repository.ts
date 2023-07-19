@@ -1,4 +1,4 @@
-import { Company } from "../Model/Company";
+import { Company } from "../model/company";
 import { CompanyParams } from "../util/types";
 
 export class CompanyRepository {

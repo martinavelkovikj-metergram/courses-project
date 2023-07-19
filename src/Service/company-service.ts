@@ -1,5 +1,5 @@
 import { CompanyParams } from "../util/types";
-import { CompanyRepository } from "../Repository/company-repository";
+import { CompanyRepository } from "../repository/company-repository";
 
 export class CompanyService {
   async createCompany(companyParams: CompanyParams) {

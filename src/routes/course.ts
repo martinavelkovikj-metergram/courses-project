@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
-import { Courses } from "../Controllers/Courses";
+import { Courses } from "../controllers/courses";
 export const courseRouter = express.Router();
-
 
 courseRouter.delete("/courses/:id", async (req, res) => {
   try {
@@ -18,6 +17,6 @@ courseRouter.get("/courses", async (req, res) =>
 );
 
 courseRouter.get("/courses/:id", async (req, res) => {
-    const { id } = req.params;
-    return res.send(await new Courses().getCourseById(parseInt(id)));
-  });
+  const { id } = req.params;
+  return res.send(await new Courses().getCourseById(parseInt(id)));
+});

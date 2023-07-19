@@ -1,4 +1,4 @@
-import { Course } from "../Model/Course";
+import { Course } from "../model/course";
 
 export class CoursesRepository {
   async deleteCourse(courseId: number) {

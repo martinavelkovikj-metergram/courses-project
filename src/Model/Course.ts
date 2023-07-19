@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
-import { Application } from './Application';
+import { Application } from './application'
 
 @Entity()
 export class Course extends BaseEntity{

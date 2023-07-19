@@ -1,8 +1,6 @@
-
-import { CoursesRepository } from "../Repository/courses-repository";
+import { CoursesRepository } from "../repository/courses-repository";
 
 export class CourseService {
-  
   async deleteCourse(courseId: number) {
     try {
       return await new CoursesRepository().deleteCourse(courseId);
