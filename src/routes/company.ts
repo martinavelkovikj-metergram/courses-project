@@ -1,11 +1,13 @@
 import express, { Request, Response } from "express";
 import { Companies } from "../controllers/companies";
 import { authorizeRequest } from "../middleware/authorize-requests";
+import { handleValidationErrors } from "../middleware/validation-error-handler";
+import { validateCompanyFields } from "../middleware/validation";
 export const companyRouter = express.Router();
 
 
 companyRouter.use(authorizeRequest);
-companyRouter.post("/company", async (req: Request, res: Response) =>
+companyRouter.post("/company",validateCompanyFields,handleValidationErrors, async (req: Request, res: Response) =>
   res.send(await new Companies().createCompany(req.body))
 );
 

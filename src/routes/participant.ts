@@ -2,10 +2,12 @@ import express, { Request, Response } from "express";
 import { Participants } from "../controllers/participants";
 import { ParticipantParams } from "../util/types";
 import { authorizeRequest } from "../middleware/authorize-requests";
+import { validateParticipantFields } from "../middleware/validation";
+import { handleValidationErrors } from "../middleware/validation-error-handler";
 export const participantRouter = express.Router();
 
 participantRouter.use(authorizeRequest);
-participantRouter.post("/participant", async (req: Request, res: Response) => {
+participantRouter.post("/participant",validateParticipantFields, handleValidationErrors , async (req: Request, res: Response) => {
   try {
     const participantParams: ParticipantParams = req.body.participantParams;
     const companyId: number = req.body.companyId;
