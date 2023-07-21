@@ -3,16 +3,13 @@ import { ParticipantParams } from "../util/types";
 import { Company } from "../model/company";
 
 export class ParticipantRepository {
-  async createParticipant(
-    participantParams: ParticipantParams,
-    companyId: number
-  ) {
+  async createParticipant(participantParams: ParticipantParams,companyId: number) {
     try {
       const company = await Company.findOne({
         where: { company_id: companyId },
       });
       if (company) {
-        return await Participant.create({
+        return Participant.create({
             ...participantParams,
             company
         }).save();
@@ -31,7 +28,7 @@ export class ParticipantRepository {
         },
       });
       if (participant) {
-        return await Participant.remove(participant);
+        return Participant.remove(participant);
       }else{
         throw new Error("Participant not found");
       } 
@@ -43,7 +40,7 @@ export class ParticipantRepository {
 
   async getAllParticipants() {
     try {
-      return await Participant.find();
+      return Participant.find();
     } catch (err) {
       console.error(err);
       throw new Error("Fetching participants failed");
@@ -66,7 +63,7 @@ export class ParticipantRepository {
 
   async getParticipantById(participantId: number) {
     try {
-      return await Participant.findOne({
+      return Participant.findOne({
         where: {
           participant_id: participantId,
         },

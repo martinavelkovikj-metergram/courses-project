@@ -4,9 +4,7 @@ import { CompanyParams } from "../util/types";
 export class CompanyRepository {
   async createCompany(companyParams: CompanyParams) {
     try {
-      return await Company.create({ 
-        ...companyParams
-      }).save();
+      return Company.create({ ...companyParams}).save();
     } catch (err) {
       console.error(err); 
       throw new Error("Creating company failed!");
@@ -21,7 +19,7 @@ export class CompanyRepository {
         },
       });
       if (company) {
-        return await Company.remove(company);
+        return Company.remove(company);
       }
     } catch (err) {
       console.log(err);
@@ -31,7 +29,7 @@ export class CompanyRepository {
 
   async getAllCompanies() {
     try {
-      return await Company.find();
+      return Company.find();
     } catch (err) {
       console.error(err);
       throw new Error("Fetching companies failed!");
@@ -40,7 +38,7 @@ export class CompanyRepository {
 
   async getCompanyById(companyId: number) {
     try {
-      return await Company.findOne({
+      return Company.findOne({
         where: {
           company_id: companyId,
         },

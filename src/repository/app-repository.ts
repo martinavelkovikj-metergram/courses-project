@@ -8,7 +8,7 @@ export class ApplicationRepository {
     try {
       const { participants, company, course } = applicationParams;
       if (!company || !course || participants.some((p) => !p)) { 
-        return;
+        throw new Error("Application parameters missing!");
       }
       const existingCompany = await Company.findOne({
         where: {
@@ -26,9 +26,7 @@ export class ApplicationRepository {
         throw new Error("No such Course or Company!");
       }
 
-      return await Application.create({
-        ...applicationParams
-      }).save();
+      return Application.create({...applicationParams}).save();
     } catch (err) {
       console.error(err);
       throw new Error("Creating application failed!");
@@ -43,7 +41,7 @@ export class ApplicationRepository {
         },
       });
       if (application) {
-        return await Application.remove(application);
+        return Application.remove(application);
       }
     } catch (err) {
       console.log(err);
@@ -53,7 +51,7 @@ export class ApplicationRepository {
 
   async getAllApplications() {
     try {
-      return await Application.find();
+      return Application.find();
     } catch (err) {
       console.error(err);
       throw new Error("Fetching applications failed!");
@@ -62,7 +60,7 @@ export class ApplicationRepository {
 
   async getApplicationById(appId: number) {
     try {
-      return await Application.findOne({
+      return Application.findOne({
         where: {
           application_id: appId,
         },

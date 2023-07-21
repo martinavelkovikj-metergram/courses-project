@@ -1,13 +1,13 @@
 import { body, validationResult, ValidationChain } from "express-validator";
 
 export const validateParticipantFields: ValidationChain[] = [
-  body("participantParams.name")
+  body("participant.name")
     .isString()
     .withMessage("Name must be a string"),
-  body("participantParams.phone_number")
+  body("participant.phone_number")
     .isString()
     .withMessage("Phone number must be a string"),
-  body("participantParams.email")
+  body("participant.email")
     .isEmail()
     .withMessage("Invalid email format for a participant"),
   body("companyId").isNumeric().withMessage("CompanyId must be a number"),

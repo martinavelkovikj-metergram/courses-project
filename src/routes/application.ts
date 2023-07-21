@@ -5,17 +5,19 @@ import { validateApplicationFields } from "../middleware/validation";
 import { handleValidationErrors } from "../middleware/validation-error-handler";
 export const appRouter = express.Router();
 
-
 appRouter.use(authorizeRequest);
-appRouter.post("/application",validateApplicationFields,handleValidationErrors,async (req: Request, res: Response) =>{
- try{
-    const app= await new Applications().createApplication(req.body);
-    res.send(app);
- } catch (err) {
-    res.status(500).send({ error: "Failed creating application" });
+appRouter.post(
+  "/application",
+  validateApplicationFields,
+  handleValidationErrors,
+  async (req: Request, res: Response) => {
+    try {
+      res.send(await new Applications().createApplication(req.body));
+    } catch (err) {
+      res.status(500).send({ error: "Failed creating application" });
+    }
   }
- 
-});
+);
 
 appRouter.delete("/application/:id", async (req, res) => {
   try {

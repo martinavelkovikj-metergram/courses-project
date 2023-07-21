@@ -9,7 +9,7 @@ export class CoursesRepository {
         },
       });
       if (course) {
-        return await Course.remove(course);
+        return Course.remove(course);
       }
     } catch (err) {
       console.log(err); 
@@ -19,7 +19,7 @@ export class CoursesRepository {
 
   async getAllCourses() {
     try {
-      return await Course.find();
+      return Course.find();
     } catch (err) {
       console.error(err);
       throw new Error("Fetching courses failed!");
@@ -28,7 +28,7 @@ export class CoursesRepository {
 
   async getCourseById(courseId: number) {
     try {
-      return await Course.findOne({
+      return Course.findOne({
         where: {
           course_id: courseId,
         },

@@ -9,7 +9,7 @@ export const participantRouter = express.Router();
 participantRouter.use(authorizeRequest);
 participantRouter.post("/participant",validateParticipantFields, handleValidationErrors , async (req: Request, res: Response) => {
   try {
-    const participantParams: ParticipantParams = req.body.participantParams;
+    const participantParams: ParticipantParams = req.body.participant;
     const companyId: number = req.body.companyId;
     res.send(
       await new Participants().createParticipant(participantParams, companyId)

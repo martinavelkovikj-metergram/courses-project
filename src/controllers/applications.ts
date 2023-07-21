@@ -4,35 +4,39 @@ import { ApplicationParams } from "../util/types";
 export class Applications {
   async createApplication(applicationParams: ApplicationParams) {
     try {
-      return await new ApplicationService().createApplication(
+      return new ApplicationService().createApplication(
         applicationParams
       );
     } catch (err) {
       console.error(err);
+      throw new Error("Creating application failed!");
     }
   }
 
   async deleteApplication(appId: number) {
     try {
-      return await new ApplicationService().deleteApplication(appId);
+      return new ApplicationService().deleteApplication(appId);
     } catch (err) {
       console.error(err);
+      throw new Error("Deleting application failed!");
     }
   }
 
   async getAllApplications() {
     try {
-      return await new ApplicationService().getAllApplications();
+      return new ApplicationService().getAllApplications();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching applications failed!");
     }
   }
 
   async getApplicationById(appId: number) {
     try {
-      return await new ApplicationService().getApplicationById(appId);
+      return new ApplicationService().getApplicationById(appId);
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching application failed!");
     }
   }
 }

@@ -4,7 +4,7 @@ dotenv.config();
 interface DbConfig {
   username: string;
   password: string;
-  database: string;
+  data_base: string;
 }
 
 interface Config {
@@ -27,7 +27,7 @@ const config: Config = {
   db: {
     username: readEnvVariable("DATABASE_USERNAME"),
     password: readEnvVariable("DATABASE_PASSWORD"),
-    database: readEnvVariable("DATABASE_NAME"),
+    data_base: readEnvVariable("DATABASE_NAME"),
   },
   api_key: readEnvVariable("API_KEY"),
   api_url: readEnvVariable("API_URL"),

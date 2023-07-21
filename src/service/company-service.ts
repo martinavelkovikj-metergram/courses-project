@@ -4,33 +4,37 @@ import { CompanyRepository } from "../repository/company-repository";
 export class CompanyService {
   async createCompany(companyParams: CompanyParams) {
     try {
-      return await new CompanyRepository().createCompany(companyParams);
+      return new CompanyRepository().createCompany(companyParams);
     } catch (err) {
       console.error(err);
+      throw new Error("Creating company failed!");
     }
   }
 
   async deleteCompany(companyId: number) {
     try {
-      return await new CompanyRepository().deleteCompany(companyId);
+      return new CompanyRepository().deleteCompany(companyId);
     } catch (err) {
       console.error(err);
+      throw new Error("Deleting company failed!");
     }
   }
 
   async getAllCompanies() {
     try {
-      return await new CompanyRepository().getAllCompanies();
+      return new CompanyRepository().getAllCompanies();
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching companies failed!");
     }
   }
 
   async getCompanyById(companyId: number) {
     try {
-      return await new CompanyRepository().getCompanyById(companyId);
+      return new CompanyRepository().getCompanyById(companyId);
     } catch (err) {
       console.error(err);
+      throw new Error("Fetching company failed!");
     }
   }
 }
