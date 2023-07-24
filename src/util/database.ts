@@ -13,7 +13,7 @@ export const AppSource = new DataSource({
   port: 5432,
   username: config.db.username,
   password: config.db.password,
-  database: config.db.data_base,
+  database: config.db.database,
   entities: [Company, Course, Participant, Application],
   synchronize: true,
 });
