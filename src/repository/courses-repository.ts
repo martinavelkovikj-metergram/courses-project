@@ -3,11 +3,8 @@ import { Course } from "../model/course";
 export class CoursesRepository {
   async deleteCourse(courseId: number) {
     try {
-      const course = await Course.findOne({
-        where: {
-          course_id: courseId,
-        },
-      });
+
+      const course= await this.getCourseById(courseId);
       if (course) {
         return Course.remove(course);
       }

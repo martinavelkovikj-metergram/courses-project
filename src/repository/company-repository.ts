@@ -13,11 +13,7 @@ export class CompanyRepository {
 
   async deleteCompany(companyId: number) {
     try {
-      const company = await Company.findOne({
-        where: {
-          company_id: companyId,
-        },
-      });
+      const company = await this.getCompanyById(companyId);
       if (company) {
         return Company.remove(company);
       }

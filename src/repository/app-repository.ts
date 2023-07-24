@@ -35,11 +35,7 @@ export class ApplicationRepository {
 
   async deleteApplication(appId: number) {
     try {
-      const application = await Application.findOne({
-        where: {
-          application_id: appId,
-        },
-      });
+      const application= await this.getApplicationById(appId);
       if (application) {
         return Application.remove(application);
       }

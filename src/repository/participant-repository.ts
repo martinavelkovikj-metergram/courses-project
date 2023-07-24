@@ -22,11 +22,8 @@ export class ParticipantRepository {
 
   async deleteParticipant(participantId: number) {
     try {
-      const participant = await Participant.findOne({
-        where: {
-          participant_id: participantId,
-        },
-      });
+
+      const participant= await this.getParticipantById(participantId);
       if (participant) {
         return Participant.remove(participant);
       }else{
