@@ -8,7 +8,7 @@ export const authorizeRequest = (
 ) => {
   const internalApiKey = req.headers["internal-api-key"];
 
-  if (!internalApiKey || internalApiKey != config.internal_api_key) {
+  if (!internalApiKey || internalApiKey != config.internalApiKey) {
     return resp.status(401).json({ error: "Invalid API key" });
   }
 

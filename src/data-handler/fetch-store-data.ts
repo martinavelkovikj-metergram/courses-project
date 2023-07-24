@@ -9,7 +9,7 @@ export async function fetchCoursesAndStore(): Promise<void> {
   try {
     const accessToken = await getAccessToken();
 
-    const coursesResponse = await axios.get(`${config.api_url}/api/courses`, {
+    const coursesResponse = await axios.get(`${config.apiUrl}/api/courses`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

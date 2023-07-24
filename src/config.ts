@@ -4,14 +4,14 @@ dotenv.config();
 interface DbConfig {
   username: string;
   password: string;
-  data_base: string;
+  database: string;
 }
 
 interface Config {
   db: DbConfig;
-  api_key: String;
-  api_url: String;
-  internal_api_key: String;
+  apiKey: String;
+  apiUrl: String;
+  internalApiKey: String;
 }
 
 function readEnvVariable(key: string): string {
@@ -27,11 +27,11 @@ const config: Config = {
   db: {
     username: readEnvVariable("DATABASE_USERNAME"),
     password: readEnvVariable("DATABASE_PASSWORD"),
-    data_base: readEnvVariable("DATABASE_NAME"),
+    database: readEnvVariable("DATABASE_NAME"),
   },
-  api_key: readEnvVariable("API_KEY"),
-  api_url: readEnvVariable("API_URL"),
-  internal_api_key: readEnvVariable("INTERNAL_API_KEY")
+  apiKey: readEnvVariable("API_KEY"),
+  apiUrl: readEnvVariable("API_URL"),
+  internalApiKey: readEnvVariable("INTERNAL_API_KEY")
 };
 
 export { config };

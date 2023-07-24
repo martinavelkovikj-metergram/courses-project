@@ -6,9 +6,9 @@ import { handleAPIError } from "./api-error-handler";
 export async function getAccessToken() {
   try {
     const response = await axios.post<AuthResponse>(
-      `${config.api_url}/api/auth`,
+      `${config.apiUrl}/api/auth`,
       {
-        apiKey: config.api_key,
+        apiKey: config.apiKey,
       }
     );
 
