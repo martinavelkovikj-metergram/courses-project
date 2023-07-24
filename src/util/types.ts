@@ -1,34 +1,34 @@
-import { Company } from "../model/company";
-import { Course } from "../model/course";
-import { Participant } from "../model/participant";
+import { type Company } from '../model/company'
+import { type Course } from '../model/course'
+import { type Participant } from '../model/participant'
 
-export type CourseParams = {
-  id: number;
-  date: Date;
-  course_name: string;
-};
+export interface CourseParams {
+  id: number
+  date: Date
+  course_name: string
+}
 
 export interface AuthResponse {
   data: {
-    accessToken: string;
-  };
+    accessToken: string
+  }
 }
 
-export type ParticipantParams = {
-    name: string;
-    phone_number: string;
-    email: string;
-  };
+export interface ParticipantParams {
+  name: string
+  phone_number: string
+  email: string
+}
 
-  export type CompanyParams = {
-    name: string;
-    phone_number: string;
-    email: string;
-    participants: Participant []
-  };
+export interface CompanyParams {
+  name: string
+  phone_number: string
+  email: string
+  participants: Participant []
+}
 
-  export type ApplicationParams = {
-    participants: Participant[];
-    company: Company;
-    course: Course;
-  };
+export interface ApplicationParams {
+  participants: Participant[]
+  company: Company
+  course: Course
+}

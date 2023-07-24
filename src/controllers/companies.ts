@@ -1,40 +1,41 @@
-import { CompanyService } from "../service/company-service";
-import { CompanyParams } from "../util/types";
+import { type Company } from '../model/company'
+import { CompanyService } from '../service/company-service'
+import { type CompanyParams } from '../util/types'
 
 export class Companies {
-  async createCompany(CompanyParams: CompanyParams) {
+  async createCompany (CompanyParams: CompanyParams): Promise<Company> {
     try {
-      return new CompanyService().createCompany(CompanyParams);
+      return await new CompanyService().createCompany(CompanyParams)
     } catch (err) {
-      console.error(err);
-      throw new Error("Creating company failed!");
+      console.error(err)
+      throw new Error('Creating company failed!')
     }
   }
 
-  async deleteCompany(companyId: number) {
+  async deleteCompany (companyId: number): Promise<Company> {
     try {
-      return new CompanyService().deleteCompany(companyId);
+      return await new CompanyService().deleteCompany(companyId)
     } catch (err) {
-      console.error(err);
-      throw new Error("Deleting company failed!");
+      console.error(err)
+      throw new Error('Deleting company failed!')
     }
   }
 
-  async getAllCompanies() {
+  async getAllCompanies (): Promise<Company[]> {
     try {
-      return new CompanyService().getAllCompanies();
+      return await new CompanyService().getAllCompanies()
     } catch (err) {
-      console.error(err);
-      throw new Error("Fetching companies failed!");
+      console.error(err)
+      throw new Error('Fetching companies failed!')
     }
   }
 
-  async getCompanyById(companyId: number) {
+  async getCompanyById (companyId: number): Promise<Company | null> {
     try {
-      return new CompanyService().getCompanyById(companyId);
+      return await new CompanyService().getCompanyById(companyId)
     } catch (err) {
-      console.error(err);
-      throw new Error("Fetching company failed!");
+      console.error(err)
+      throw new Error('Fetching company failed!')
     }
   }
 }
