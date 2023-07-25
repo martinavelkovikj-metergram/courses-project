@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Application } from '../model/application'
 import { Company } from '../model/company'
 import { Course } from '../model/course'
@@ -70,4 +69,3 @@ export class ApplicationRepository {
     }
   }
 }
-/* eslint-enable @typescript-eslint/strict-boolean-expressions */

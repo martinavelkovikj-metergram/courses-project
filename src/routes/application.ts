@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import express, { type Request, type Response } from 'express'
 import { Applications } from '../controllers/applications'
 import { authorizeRequest } from '../middleware/authorize-requests'
@@ -40,4 +39,3 @@ appRouter.get('/application/:id', async (req, res) => {
   const { id } = req.params
   return res.send(await new Applications().getApplicationById(parseInt(id)))
 })
-/* eslint-enable @typescript-eslint/no-misused-promises */

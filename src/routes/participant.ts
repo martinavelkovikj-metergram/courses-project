@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import express, { type Request, type Response } from 'express'
 import { Participants } from '../controllers/participants'
 import { type ParticipantParams } from '../util/types'
@@ -45,4 +44,3 @@ participantRouter.get('/participantFrom/:id', async (req, res) => {
     await new Participants().getAllParticipantsFromCompany(parseInt(id))
   )
 })
-/* eslint-enable @typescript-eslint/no-misused-promises */

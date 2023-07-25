@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import express from 'express'
 import { Courses } from '../controllers/courses'
 import { authorizeRequest } from '../middleware/authorize-requests'
@@ -23,4 +22,3 @@ courseRouter.get('/courses/:id', async (req, res) => {
   const { id } = req.params
   return res.send(await new Courses().getCourseById(parseInt(id)))
 })
-/* eslint-enable @typescript-eslint/no-misused-promises */

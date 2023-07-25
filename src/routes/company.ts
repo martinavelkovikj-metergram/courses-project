@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import express, { type Request, type Response } from 'express'
 import { Companies } from '../controllers/companies'
 import { authorizeRequest } from '../middleware/authorize-requests'
@@ -29,4 +28,3 @@ companyRouter.get('/company/:id', async (req, res) => {
   const { id } = req.params
   return res.send(await new Companies().getCompanyById(parseInt(id)))
 })
-/* eslint-enable @typescript-eslint/no-misused-promises */
