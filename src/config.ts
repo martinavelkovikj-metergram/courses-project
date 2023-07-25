@@ -2,21 +2,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 interface DbConfig {
-  username: string
-  password: string
-  database: string
+  username: string;
+  password: string;
+  database: string;
 }
 
 interface Config {
-  db: DbConfig
-  apiKey: string
-  apiUrl: string
-  internalApiKey: string
+  db: DbConfig;
+  apiKey: string;
+  apiUrl: string;
+  internalApiKey: string;
 }
 
 function readEnvVariable(key: string): string {
   const value = process.env[key];
-  if (value == null) {
+  if (!value) {
     throw new Error(`Missing required environment variable: ${key}`);
   }
 
