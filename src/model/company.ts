@@ -1,20 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from 'typeorm'
-import { Application } from './application'
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from 'typeorm';
+import { Application } from './application';
 
 @Entity()
 export class Company extends BaseEntity {
   @PrimaryGeneratedColumn()
-    company_id!: number
+    company_id!: number;
 
   @Column()
-    name!: string
+    name!: string;
 
   @Column()
-    phone_number!: string
+    phone_number!: string;
 
   @Column()
-    email!: string
+    email!: string;
 
   @OneToMany(() => Application, application => application.company)
-    applications?: Application[]
+    applications?: Application[];
 }

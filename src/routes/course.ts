@@ -1,24 +1,24 @@
-import express from 'express'
-import { Courses } from '../controllers/courses'
-import { authorizeRequest } from '../middleware/authorize-requests'
-export const courseRouter = express.Router()
+import express from 'express';
+import { Courses } from '../controllers/courses';
+import { authorizeRequest } from '../middleware/authorize-requests';
+export const courseRouter = express.Router();
 
-courseRouter.use(authorizeRequest)
+courseRouter.use(authorizeRequest);
 courseRouter.delete('/courses/:id', async (req, res) => {
   try {
-    const { id } = req.params
-    await new Courses().deleteCourse(parseInt(id))
-    res.send({ deletedCourseId: id })
+    const { id } = req.params;
+    await new Courses().deleteCourse(parseInt(id));
+    res.send({ deletedCourseId: id });
   } catch (err) {
-    res.status(500).send({ error: 'Failed deleting course' })
+    res.status(500).send({ error: 'Failed deleting course' });
   }
-})
+});
 
 courseRouter.get('/courses', async (req, res) =>
   res.send(await new Courses().getAllCourses())
-)
+);
 
 courseRouter.get('/courses/:id', async (req, res) => {
-  const { id } = req.params
-  return res.send(await new Courses().getCourseById(parseInt(id)))
-})
+  const { id } = req.params;
+  return res.send(await new Courses().getCourseById(parseInt(id)));
+});

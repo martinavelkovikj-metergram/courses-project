@@ -1,6 +1,6 @@
-import { type Company } from '../model/company'
-import { type Course } from '../model/course'
-import { type Participant } from '../model/participant'
+import { type Company } from '../model/company';
+import { type Course } from '../model/course';
+import { type Participant } from '../model/participant';
 
 export interface CourseParams {
   id: number

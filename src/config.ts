@@ -1,5 +1,5 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface DbConfig {
   username: string
@@ -14,13 +14,13 @@ interface Config {
   internalApiKey: string
 }
 
-function readEnvVariable (key: string): string {
-  const value = process.env[key]
+function readEnvVariable(key: string): string {
+  const value = process.env[key];
   if (value == null) {
-    throw new Error(`Missing required environment variable: ${key}`)
+    throw new Error(`Missing required environment variable: ${key}`);
   }
 
-  return value
+  return value;
 }
 
 const config: Config = {
@@ -32,6 +32,6 @@ const config: Config = {
   apiKey: readEnvVariable('API_KEY'),
   apiUrl: readEnvVariable('API_URL'),
   internalApiKey: readEnvVariable('INTERNAL_API_KEY')
-}
+};
 
-export { config }
+export { config };

@@ -1,4 +1,4 @@
-import { body, type ValidationChain } from 'express-validator'
+import { body, type ValidationChain } from 'express-validator';
 
 export const validateParticipantFields: ValidationChain[] = [
   body('participant.name')
@@ -11,7 +11,7 @@ export const validateParticipantFields: ValidationChain[] = [
     .isEmail()
     .withMessage('Invalid email format for a participant'),
   body('companyId').isNumeric().withMessage('CompanyId must be a number')
-]
+];
 
 export const validateCompanyFields: ValidationChain[] = [
   body('name').isString().withMessage('Name must be a string'),
@@ -30,7 +30,7 @@ export const validateCompanyFields: ValidationChain[] = [
   body('participants.*.email')
     .isEmail()
     .withMessage('Invalid email format for a participant')
-]
+];
 
 export const validateApplicationFields: ValidationChain[] = [
   body('participants')
@@ -46,4 +46,4 @@ export const validateApplicationFields: ValidationChain[] = [
   body('course.course_id')
     .isInt({ min: 1 })
     .withMessage('Course ID must be a positive integer')
-]
+];

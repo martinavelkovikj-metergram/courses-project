@@ -1,49 +1,49 @@
-import { Company } from '../model/company'
-import { type CompanyParams } from '../util/types'
+import { Company } from '../model/company';
+import { type CompanyParams } from '../util/types';
 
 export class CompanyRepository {
-  async createCompany (companyParams: CompanyParams): Promise<Company> {
+  async createCompany(companyParams: CompanyParams): Promise<Company> {
     try {
-      return await Company.create({ ...companyParams }).save()
+      return await Company.create({ ...companyParams }).save();
     } catch (err) {
-      console.error(err)
-      throw new Error('Creating company failed!')
+      console.error(err);
+      throw new Error('Creating company failed!');
     }
   }
 
-  async deleteCompany (companyId: number): Promise<Company> {
+  async deleteCompany(companyId: number): Promise<Company> {
     try {
-      const company = await this.getCompanyById(companyId)
+      const company = await this.getCompanyById(companyId);
       if (company != null) {
-        return await Company.remove(company)
+        return await Company.remove(company);
       } else {
-        throw new Error('Deleting company failed!')
+        throw new Error('Deleting company failed!');
       }
     } catch (err) {
-      console.log(err)
-      throw new Error('Deleting company failed!')
+      console.log(err);
+      throw new Error('Deleting company failed!');
     }
   }
 
-  async getAllCompanies (): Promise<Company[]> {
+  async getAllCompanies(): Promise<Company[]> {
     try {
-      return await Company.find()
+      return await Company.find();
     } catch (err) {
-      console.error(err)
-      throw new Error('Fetching companies failed!')
+      console.error(err);
+      throw new Error('Fetching companies failed!');
     }
   }
 
-  async getCompanyById (companyId: number): Promise<Company | null> {
+  async getCompanyById(companyId: number): Promise<Company | null> {
     try {
       return await Company.findOne({
         where: {
           company_id: companyId
         }
-      })
+      });
     } catch (err) {
-      console.error(err)
-      throw new Error('Fetching company failed!')
+      console.error(err);
+      throw new Error('Fetching company failed!');
     }
   }
 }
