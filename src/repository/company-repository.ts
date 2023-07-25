@@ -14,7 +14,7 @@ export class CompanyRepository {
   async deleteCompany(companyId: number): Promise<Company> {
     try {
       const company = await this.getCompanyById(companyId);
-      if (company != null) {
+      if (company !== null) {
         return await Company.remove(company);
       } else {
         throw new Error('Deleting company failed!');

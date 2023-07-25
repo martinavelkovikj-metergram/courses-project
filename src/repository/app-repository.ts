@@ -22,7 +22,7 @@ export class ApplicationRepository {
         }
       });
 
-      if ((existingCompany == null) || (existingCourse == null)) {
+      if (!existingCompany || !existingCourse) {
         throw new Error('No such Course or Company!');
       }
 
@@ -36,7 +36,7 @@ export class ApplicationRepository {
   async deleteApplication(appId: number): Promise<Application> {
     try {
       const application = await this.getApplicationById(appId);
-      if (application != null) {
+      if (application !== null) {
         return await Application.remove(application);
       } else {
         throw new Error('Deleting application failed!');

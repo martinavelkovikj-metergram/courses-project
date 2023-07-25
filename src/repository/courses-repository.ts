@@ -4,7 +4,7 @@ export class CoursesRepository {
   async deleteCourse(courseId: number): Promise<Course> {
     try {
       const course = await this.getCourseById(courseId);
-      if (course != null) {
+      if (course !== null) {
         return await Course.remove(course);
       } else {
         throw new Error('Deleting course failed!');

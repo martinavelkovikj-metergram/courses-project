@@ -8,7 +8,7 @@ export class ParticipantRepository {
       const company = await Company.findOne({
         where: { company_id: companyId }
       });
-      if (company != null) {
+      if (company !== null) {
         return await Participant.create({
           ...participantParams,
           company
@@ -25,7 +25,7 @@ export class ParticipantRepository {
   async deleteParticipant(participantId: number): Promise<Participant> {
     try {
       const participant = await this.getParticipantById(participantId);
-      if (participant != null) {
+      if (participant !== null) {
         return await Participant.remove(participant);
       } else {
         throw new Error('Participant not found');
