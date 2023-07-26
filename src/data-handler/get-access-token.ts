@@ -12,7 +12,7 @@ let isFetched: boolean = false;
 // Stores the global variables in file.
 
 async function saveTokenData() {
-  const tokenFilePath = path.join(__dirname, "/tokenData.json");
+  const tokenFilePath = path.join(__dirname, "/access-token.json");
   const data = JSON.stringify({ accessToken, expirationTime, isFetched });
   try {
     fs.writeFileSync(tokenFilePath, data, "utf-8");
@@ -24,7 +24,7 @@ async function saveTokenData() {
 
 // loads the global variables from file if stored.
 async function loadTokenData() {
-  const tokenFilePath = path.join(__dirname, "/tokenData.json");
+  const tokenFilePath = path.join(__dirname, "/access-token.json");
   if (fs.existsSync(tokenFilePath)) {
     try {
       const data = JSON.parse(fs.readFileSync(tokenFilePath, "utf-8"));
