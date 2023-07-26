@@ -1,47 +1,49 @@
-import { Company } from "../model/company";
-import { CompanyParams } from "../util/types";
+import { Company } from '../model/company';
+import { type CompanyParams } from '../util/types';
 
 export class CompanyRepository {
-  async createCompany(companyParams: CompanyParams) {
+  async createCompany(companyParams: CompanyParams): Promise<Company> {
     try {
-      return Company.create({ ...companyParams}).save();
+      return await Company.create({ ...companyParams }).save();
     } catch (err) {
-      console.error(err); 
-      throw new Error("Creating company failed!");
+      console.error(err);
+      throw new Error('Creating company failed!');
     }
   }
 
-  async deleteCompany(companyId: number) {
+  async deleteCompany(companyId: number): Promise<Company> {
     try {
       const company = await this.getCompanyById(companyId);
-      if (company) {
-        return Company.remove(company);
+      if (company !== null) {
+        return await Company.remove(company);
+      } else {
+        throw new Error('Deleting company failed!');
       }
     } catch (err) {
       console.log(err);
-      throw new Error("Deleting company failed!");
+      throw new Error('Deleting company failed!');
     }
   }
 
-  async getAllCompanies() {
+  async getAllCompanies(): Promise<Company[]> {
     try {
-      return Company.find();
+      return await Company.find();
     } catch (err) {
       console.error(err);
-      throw new Error("Fetching companies failed!");
+      throw new Error('Fetching companies failed!');
     }
   }
 
-  async getCompanyById(companyId: number) {
+  async getCompanyById(companyId: number): Promise<Company | null> {
     try {
-      return Company.findOne({
+      return await Company.findOne({
         where: {
-          company_id: companyId,
-        },
+          company_id: companyId
+        }
       });
     } catch (err) {
       console.error(err);
-      throw new Error("Fetching company failed!");
+      throw new Error('Fetching company failed!');
     }
   }
 }

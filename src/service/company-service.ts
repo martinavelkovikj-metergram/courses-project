@@ -1,40 +1,41 @@
-import { CompanyParams } from "../util/types";
-import { CompanyRepository } from "../repository/company-repository";
+import { type CompanyParams } from '../util/types';
+import { CompanyRepository } from '../repository/company-repository';
+import { type Company } from '../model/company';
 
 export class CompanyService {
-  async createCompany(companyParams: CompanyParams) {
+  async createCompany(companyParams: CompanyParams): Promise<Company> {
     try {
-      return new CompanyRepository().createCompany(companyParams);
+      return await new CompanyRepository().createCompany(companyParams);
     } catch (err) {
       console.error(err);
-      throw new Error("Creating company failed!");
+      throw new Error('Creating company failed!');
     }
   }
 
-  async deleteCompany(companyId: number) {
+  async deleteCompany(companyId: number): Promise<Company> {
     try {
-      return new CompanyRepository().deleteCompany(companyId);
+      return await new CompanyRepository().deleteCompany(companyId);
     } catch (err) {
       console.error(err);
-      throw new Error("Deleting company failed!");
+      throw new Error('Deleting company failed!');
     }
   }
 
-  async getAllCompanies() {
+  async getAllCompanies(): Promise<Company[]> {
     try {
-      return new CompanyRepository().getAllCompanies();
+      return await new CompanyRepository().getAllCompanies();
     } catch (err) {
       console.error(err);
-      throw new Error("Fetching companies failed!");
+      throw new Error('Fetching companies failed!');
     }
   }
 
-  async getCompanyById(companyId: number) {
+  async getCompanyById(companyId: number): Promise<Company | null> {
     try {
-      return new CompanyRepository().getCompanyById(companyId);
+      return await new CompanyRepository().getCompanyById(companyId);
     } catch (err) {
       console.error(err);
-      throw new Error("Fetching company failed!");
+      throw new Error('Fetching company failed!');
     }
   }
 }

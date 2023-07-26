@@ -1,17 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
-import { Application } from './application'
+import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
+import { Application } from './application';
 
 @Entity()
-export class Course extends BaseEntity{
+export class Course extends BaseEntity {
   @PrimaryColumn()
-  course_id!: number;
+    course_id!: number;
+
+  @PrimaryColumn()
+    date!: Date;
 
   @Column()
-  date!: Date;
-
-  @Column()
-  name!: string;
+    name!: string;
 
   @OneToMany(() => Application, application => application.course)
-  applications?: Application[];
+    applications?: Application[];
 }

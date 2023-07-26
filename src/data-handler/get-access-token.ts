@@ -1,14 +1,14 @@
-import axios from "axios";
-import { config } from "../config";
-import { AuthResponse } from "../util/types";
-import { handleAPIError } from "./api-error-handler";
+import axios from 'axios';
+import { config } from '../config';
+import { type AuthResponse } from '../util/types';
+import { handleAPIError } from './api-error-handler';
 
-export async function getAccessToken() {
+export async function getAccessToken(): Promise<string | undefined> {
   try {
     const response = await axios.post<AuthResponse>(
       `${config.apiUrl}/api/auth`,
       {
-        apiKey: config.apiKey,
+        apiKey: config.apiKey
       }
     );
 

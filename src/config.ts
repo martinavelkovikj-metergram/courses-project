@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
 
 interface DbConfig {
@@ -9,9 +9,9 @@ interface DbConfig {
 
 interface Config {
   db: DbConfig;
-  apiKey: String;
-  apiUrl: String;
-  internalApiKey: String;
+  apiKey: string;
+  apiUrl: string;
+  internalApiKey: string;
 }
 
 function readEnvVariable(key: string): string {
@@ -25,13 +25,13 @@ function readEnvVariable(key: string): string {
 
 const config: Config = {
   db: {
-    username: readEnvVariable("DATABASE_USERNAME"),
-    password: readEnvVariable("DATABASE_PASSWORD"),
-    database: readEnvVariable("DATABASE_NAME"),
+    username: readEnvVariable('DATABASE_USERNAME'),
+    password: readEnvVariable('DATABASE_PASSWORD'),
+    database: readEnvVariable('DATABASE_NAME')
   },
-  apiKey: readEnvVariable("API_KEY"),
-  apiUrl: readEnvVariable("API_URL"),
-  internalApiKey: readEnvVariable("INTERNAL_API_KEY")
+  apiKey: readEnvVariable('API_KEY'),
+  apiUrl: readEnvVariable('API_URL'),
+  internalApiKey: readEnvVariable('INTERNAL_API_KEY')
 };
 
 export { config };
