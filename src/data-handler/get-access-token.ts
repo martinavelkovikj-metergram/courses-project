@@ -34,7 +34,6 @@ export async function getAccessToken(): Promise<string | undefined> {
     expirationTime = Date.now() + 18000000;
 
     console.log("accesToken retrieved from api");
-
     return accessToken;
   } catch (error: any) {
     handleAPIError(error);
