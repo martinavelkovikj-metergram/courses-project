@@ -6,7 +6,7 @@ export class Course extends BaseEntity {
   @PrimaryColumn()
     course_id!: number;
 
-  @Column()
+  @PrimaryColumn()
     date!: Date;
 
   @Column()
