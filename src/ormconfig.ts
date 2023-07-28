@@ -10,9 +10,6 @@ export const configuration ={
     password: config.db.password,
     database: config.db.database,
     entities: Object.values(entities),
-    migrations: Object.values(migrations),
-    cli: {
-        migrationsDir: "./util"
-      }
+    migrations: Object.values(migrations)
     
   }

@@ -1,2 +1,2 @@
-export * from './1690549821071-InitMigration';
-export * from './1690550305736-NamingMigration';
+export * from './1-creating-whole-database';
+
