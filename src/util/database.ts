@@ -1,11 +1,7 @@
-import { DataSource } from 'typeorm';
-
-import { Company } from '../model/company';
-import { Participant } from '../model/participant';
-import { Course } from '../model/course';
-
-import { config } from '../config';
-import { Application } from '../model/application';
+import { DataSource } from 'typeorm'
+import { config } from '../config'
+import * as entities from '../model/entities'
+import * as migrations from '../migration/migrations'
 
 export const AppSource = new DataSource({
   type: 'postgres',
@@ -14,6 +10,8 @@ export const AppSource = new DataSource({
   username: config.db.username,
   password: config.db.password,
   database: config.db.database,
-  entities: [Company, Course, Participant, Application],
-  synchronize: true
+  entities: Object.values(entities),
+  migrations: Object.values(migrations),
+
+  
 });
