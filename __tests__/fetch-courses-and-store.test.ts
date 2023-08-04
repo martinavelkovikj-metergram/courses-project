@@ -1,8 +1,8 @@
-import { fetchCoursesAndStore } from '../src/data-handler/fetch-store-data';
+import { fetchCoursesAndStore } from "../src/data-handler/fetch-store-data";
 import { Course } from "../src/model/course";
 import { getAccessToken } from "../src/data-handler/get-access-token";
 import axios from "axios";
-import { createTestConnection } from '../test-setup';
+import { createTestConnection } from "../test-setup";
 
 jest.mock("../src/data-handler/get-access-token");
 jest.mock("axios");

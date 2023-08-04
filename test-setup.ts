@@ -1,5 +1,5 @@
 import { createConnection, ConnectionOptions } from 'typeorm';
-import { Course } from './src/model/course'; // Import the Course entity here
+import { Course } from './src/model/course';
 
 export const createTestConnection = async () => {
   const connectionOptions: ConnectionOptions = {

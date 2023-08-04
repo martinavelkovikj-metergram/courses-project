@@ -5,13 +5,13 @@ jest.mock("axios");
 
 describe("getAccessToken", () => {
   afterEach(() => {
-    jest.clearAllMocks(); 
+    jest.clearAllMocks();
   });
 
   test("should fetch and store the access token", async () => {
     const mockAccessToken = "dummy-access-token";
     const response = { data: { data: { accessToken: mockAccessToken } } };
-    axios.post = jest.fn().mockResolvedValue(response); 
+    axios.post = jest.fn().mockResolvedValue(response);
 
     const accessToken = await getAccessToken();
 
